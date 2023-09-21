@@ -7,33 +7,55 @@
     <link href="/dist/output.css" rel="stylesheet">
 </head>
 
-<body>
-    <header>
-
-        <div class="navbar bg-base-100">
-            <div class="flex-1">
-                <h2 class="text-xl">Bima A S</h2>
-            </div>
-            <div class="flex-none">
-                <ul class="menu menu-horizontal px-1">
-                    <li><a>About</a></li>
-                    <li><a>Projects</a></li>
-                    <li>
-                        <details>
-                            <summary>
-                                Contacts
-                            </summary>
-                            <ul class="bg-base-100">
-                                <li><a>Instagram</a></li>
-                                <li><a>Linkedin</a></li>
-                            </ul>
-                        </details>
-                    </li>
-                </ul>
-            </div>
+<!-- <header>
+    <div class="navbar bg-base-100 fixed">
+        <div class="flex-1">
+            <h2 class="text-xl">Bima A S</h2>
         </div>
-    </header>
-    <div class="hero bg-base-200">
+        <div class="flex-none">
+            <ul class="menu menu-horizontal px-1">
+                <li><a>About</a></li>
+                <li><a>Projects</a></li>
+                <li>
+                    <details>
+                        <summary>
+                            Contacts
+                        </summary>
+                        <ul class="bg-base-100">
+                            <li><a>Instagram</a></li>
+                            <li><a>Linkedin</a></li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header> -->
+<header style="position: fixed; top: 0; left: 0; right: 0; z-index: 999;" class="navbar bg-base-100">
+    <div class="flex-1">
+        <h2 class="text-xl">Bima A S</h2>
+    </div>
+    <div class="flex-none">
+        <ul class="menu menu-horizontal px-1">
+            <li><a>About</a></li>
+            <li><a>Projects</a></li>
+            <li>
+                <details>
+                    <summary>
+                        Contacts
+                    </summary>
+                    <ul class="bg-base-100">
+                        <li><a>Instagram</a></li>
+                        <li><a>Linkedin</a></li>
+                    </ul>
+                </details>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<body>
+    <div class="hero bg-base-200 mt-20">
         <div class="text-center hero-content">
             <div class="max-w-md">
                 <h1 class="mb-2 text-3xl font-bold">
@@ -41,6 +63,13 @@
                 </h1>
                 <h1 class="mx-auto mb-1 text-2xl text-green-400 font-mono"><span class="typed"></span></h1>
                 <h2 class="mb-3 font-extralight">Web Developer | Software Engineer</h2>
+                <div class="mx-auto">
+                    <div class="avatar">
+                        <div class="w-36 rounded">
+                            <img src="assets/img/Foto UPNVJ BIMA.jpeg" />
+                        </div>
+                    </div>
+                </div>
                 <p class="mb-5 text-sm">
                     An undergraduate student in Computer Engineering at Universitas Pembangunan Nasional Veteran
                     Jakarta. Have interest in Game Developer and full stack developer. Familiar with several IT
@@ -49,7 +78,28 @@
             </div>
         </div>
     </div>
-    
+
+    <div class="container mx-auto my-5">
+        <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
+            <div class="p-6 border-green-400 border-2 rounded-xl">
+                <h1 class="text-3xl text-green-400 font-mono">About Me</h1>
+                <p class="text-xl mt-2">I have experience in building web applications and i am capable
+                    at managing database using MySQL. Additionally I also manage to make
+                    a game using Unity. This experience make me proficient in various programming
+                    Language such as Java, C#, HTML, CSS, PHP, JavaScript, MySQL, and MariaDB.</p>
+            </div>
+            <div class="p-6 border-2 border-green-400 rounded-xl">
+                <h1 class="text-3xl text-green-400 font-mono">Lets Talk!</h1>
+                <p class="text-xl mt-2">I derive great pleasure from establishing connections
+                    with fellow professionals, creatives, and individuals who are enthusiastic
+                    about working together. I look forward to the possibility of connecting,
+                    exchanging ideas, and potentially engaging in collaborative ventures in the future.</p><br />
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 

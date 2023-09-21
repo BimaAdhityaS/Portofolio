@@ -1,0 +1,68 @@
+<!doctype html>
+<html data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/dist/output.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+
+        <div class="navbar bg-base-100">
+            <div class="flex-1">
+                <h2 class="text-xl">Bima A S</h2>
+            </div>
+            <div class="flex-none">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a>About</a></li>
+                    <li><a>Projects</a></li>
+                    <li>
+                        <details>
+                            <summary>
+                                Contacts
+                            </summary>
+                            <ul class="bg-base-100">
+                                <li><a>Instagram</a></li>
+                                <li><a>Linkedin</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="hero bg-base-200">
+        <div class="text-center hero-content">
+            <div class="max-w-md">
+                <h1 class="mb-5 text-2xl font-bold">
+                    Hello Everyone, my name is
+                </h1>
+                <h1 class="mx-auto mb-1 text-2xl text-green-400 font-mono"><span class="typed"></span></h1>
+                <h2 class="mb-3 font-extralight">Web Developer | Software Engineer</h2>
+                <p class="mb-5 text-sm">
+                    An undergraduate student in Computer Engineering at Universitas Pembangunan Nasional Veteran
+                    Jakarta. Have interest in Game Developer and full stack developer. Familiar with several IT
+                    tools/Program Language. A determined individual seeking to push their boundaries.
+                </p>
+                <button class="btn btn-primary">About Me</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+        const options = {
+            strings: ['Bima Adhitya Sukoco'],
+            typeSpeed: 90,
+            backSpeed: 40,
+            backDelay: 2000,
+        };
+
+        let typed = new Typed('.typed', options);
+    </script>
+</body>
+
+</html>

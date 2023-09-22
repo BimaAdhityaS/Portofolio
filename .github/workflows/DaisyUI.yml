@@ -1,0 +1,70 @@
+name: "📘 Deploy docs"
+
+on:
+  workflow_dispatch:
+    inputs:
+      runtime:
+        type: choice
+        description: JS runtime
+        default: "npm" # Change the default to npm
+        options:
+          - "bun"
+          - "npm"
+      npm-tag:
+        type: choice
+        description: Version of daisyUI to install
+        default: "latest"
+        options:
+          - "latest"
+          - "alpha"
+  workflow_call:
+  push:
+    branches:
+      - master
+    paths:
+      - "src/docs/**"
+  workflow_run:
+    workflows:
+      - "🎉 Release new version"
+    types:
+      - completed
+
+jobs:
+  deploy-docs:
+    runs-on: windows-2019
+    env:
+      runtime: ${{ github.event.inputs.runtime || 'npm' }} # Use npm as the default if not specified
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'workflow_call' ||
+      github.event_name == 'push' ||
+      github.event.workflow_run.conclusion == 'success'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2 # Use v2
+
+      - name: Setup Node
+        if: env.runtime == 'npm'
+        uses: actions/setup-node@v2 # Use v2
+        with:
+          node-version: "14" # Specify the Node.js version you need
+          registry-url: https://registry.npmjs.org
+
+      - name: Setup bun
+        if: env.runtime == 'bun'
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install package dependencies
+        run: ${{ env.runtime }} install
+
+      - name: Install daisyUI
+        run: ${{ env.runtime }} i daisyui@${{ github.event.inputs.npm-tag }}
+
+      - name: Build docs
+        run: ${{ env.runtime }} run build
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+        with:
+          path: '.'

@@ -6,7 +6,7 @@ on:
       runtime:
         type: choice
         description: JS runtime
-        default: "bun"
+        default: "npm" # Change the default to npm
         options:
           - "bun"
           - "npm"
@@ -31,9 +31,9 @@ on:
 
 jobs:
   deploy-docs:
-    runs-on: windows-2019
+    runs-on: windows-2019 # Change to Windows-2019
     env:
-      runtime: ${{ !github.event.inputs.runtime && 'bun'}}
+      runtime: ${{ github.event.inputs.runtime || 'npm' }} # Use npm as the default if not specified
     if: |
       github.event_name == 'workflow_dispatch' ||
       github.event_name == 'workflow_call' ||
@@ -41,13 +41,13 @@ jobs:
       github.event.workflow_run.conclusion == 'success'
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2 # Use v2
 
       - name: Setup Node
         if: env.runtime == 'npm'
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2 # Use v2
         with:
-          node-version: "latest"
+          node-version: "14" # Specify the Node.js version you need
           registry-url: https://registry.npmjs.org
 
       - name: Setup bun
@@ -71,10 +71,3 @@ jobs:
 
       - name: Build docs
         run: cd src/docs && ${{ env.runtime }} run build
-
-      - name: Deploy docs to github pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./src/docs/build
-          cname: ${{ secrets.CNAME }}

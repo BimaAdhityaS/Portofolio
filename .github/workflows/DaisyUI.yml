@@ -57,9 +57,6 @@ jobs:
       - name: Install package dependencies
         run: ${{ env.runtime }} install
 
-      - name: Build package (skip cdn file)
-        run: ${{ env.runtime }} run build:skipcdnfiles
-
       - name: Install docs dependencies
         run: cd src/docs && ${{ env.runtime }} install
 

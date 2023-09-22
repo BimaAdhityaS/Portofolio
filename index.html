@@ -10,7 +10,7 @@
 <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 999;"
     class="navbar bg-base-100 border-b-green-400 border-b-2">
     <div class="flex-1">
-        <h2 class="text-xl ml-2 text-green-400 font-mono">My Portofolio</h2>
+        <h2 class="text-xl ml-2 text-green-400 font-mono typed2"></h2>
     </div>
     <div class="flex-2">
         <ul class="menu menu-horizontal px-1">
@@ -84,8 +84,7 @@
     </div>
     <div
         class="my-5 mx-auto text-center bg-slate-950 w-3/4 h-22 content-between rounded-xl flex justify-center items-center">
-        <p class="font-mono text-4xl text-green-400">
-            Projects
+        <p class="font-mono text-4xl text-green-400 typed3">
         </p>
     </div>
     <div class="grid grid-cols-1 gap-2 md:grid-cols-3 justify-center items-center">
@@ -189,7 +188,24 @@
             backDelay: 2000,
         };
 
+        const options2 = {
+            strings: ['My Portofolio'],
+            typeSpeed: 90,
+            backSpeed: 40,
+            backDelay: 2000,
+        };
+
+        const options3 = {
+            strings: ['Projects', 'Projects', 'June 2023'],
+            typeSpeed: 90,
+            backSpeed: 40,
+            backDelay: 2000,
+        };
+
         let typed = new Typed('.typed', options);
+        let typed2 = new Typed('.typed2', options2);
+        let typed3 = new Typed('.typed3', options3);
+
     </script>
 </body>
 

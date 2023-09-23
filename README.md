@@ -13,4 +13,4 @@ After that install the daisy UI
 npm i -D daisyui@latest
 ```
 
-Still don't know how to deploy this on GitHub Pages, but for now please check it with live server or With any same tools
+Im using CDN so this installation is Optional
